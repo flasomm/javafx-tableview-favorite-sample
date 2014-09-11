@@ -3,8 +3,9 @@ package com.physalix.jfx.model;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
- *
- * @author fabrice
+ * Favorite image model class.
+ * 
+ * @author Fabrice Sommavilla <fs@physalix.com>
  */
 public class FavoriteImage {
 

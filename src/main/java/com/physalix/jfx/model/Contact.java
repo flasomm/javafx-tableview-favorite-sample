@@ -1,13 +1,16 @@
 package com.physalix.jfx.model;
 
+import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
- *
- * @author fabrice
+ * Contact model class.
+ * 
+ * @author Fabrice Sommavilla <fs@physalix.com>
  */
 public class Contact {
 
@@ -16,6 +19,7 @@ public class Contact {
     private final ObjectProperty<FavoriteImage> favoriteImageProperty
             = new SimpleObjectProperty();
     
+    private final BooleanProperty favoriteProperty;
     
     private final String BOOKMARK_IMG = "/images/valid.png";
 
@@ -26,6 +30,8 @@ public class Contact {
      */
     public Contact(String name, boolean favorite) {
         setName(name);
+        this.favoriteProperty = new SimpleBooleanProperty(this, "favorite", favorite);
+        hasFavoriteImage(getFavorite());
     }            
             
     /**
@@ -60,8 +66,29 @@ public class Contact {
         } else {
             setFavoriteImage(null);
         }
-    }    
+    }        
     
+    /**
+     * @return the favoriteProperty
+     */
+    public Boolean getFavorite() {
+        return this.favoriteProperty.get();
+    }
+
+    /**
+     * @return the favoriteProperty
+     */
+    public BooleanProperty favoriteProperty() {
+        return favoriteProperty;
+    }
+
+    /**
+     * @param favorite the favorite to set
+     */
+    public void setFavorite(Boolean favorite) {
+        this.favoriteProperty.set(favorite);
+    }    
+        
     /**
      * Getter for the name's value.
      *
