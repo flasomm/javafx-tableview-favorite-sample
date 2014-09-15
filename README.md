@@ -1,4 +1,4 @@
-# Sample TableView with favorite click image's event #
+# Sample TableView with favorite click image's event #
 
 ## Prerequisites
 
