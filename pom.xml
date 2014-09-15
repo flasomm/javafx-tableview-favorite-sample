@@ -6,7 +6,7 @@
     <artifactId>contact-app</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>contact-app</name>
+    <name>Contact-app</name>
     <url>http://maven.apache.org</url>
     
     <description>Modèle de projet contact JavaFX.</description>
