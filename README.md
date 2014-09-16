@@ -1,3 +1,6 @@
+javafx-tableview-favorite-sample
+=============================
+
 # Sample TableView with favorite click image's event #
 
 ## Prerequisites
