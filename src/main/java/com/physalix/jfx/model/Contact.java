@@ -16,8 +16,7 @@ public class Contact {
 
     private final StringProperty nameProperty = new SimpleStringProperty();
     
-    private final ObjectProperty<FavoriteImage> favoriteImageProperty
-            = new SimpleObjectProperty();
+    private final ObjectProperty<FavoriteImage> favoriteImageProperty = new SimpleObjectProperty();
     
     private final BooleanProperty favoriteProperty;
     
