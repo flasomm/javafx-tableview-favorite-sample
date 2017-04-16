@@ -47,46 +47,40 @@ public class ImageClickCellFactory implements Callback<TableColumn, TableCell> {
      */
     @Override
     public TableCell call(TableColumn p) {
-        TableCell<Object, FavoriteImage> cell
-                = new TableCell<Object, FavoriteImage>() {
+        TableCell<Object, FavoriteImage> cell = new TableCell<Object, FavoriteImage>() {
 
-                    private final VBox vbox;
-                    private final ImageView imageview;
+            private final VBox vbox;
+            private final ImageView imageview;
 
-                    // Constructor
-                    {
-                        vbox = new VBox();
-                        vbox.setAlignment(Pos.CENTER);
-                        imageview = new ImageView();
-                        imageview.setFitHeight(16);
-                        imageview.setFitWidth(16);
-                        imageview.setVisible(true);
-                        imageview.setCache(true);
-                        vbox.getChildren().addAll(imageview);
-                        setGraphic(vbox);
-                    }
+            // Constructor
+            {
+                vbox = new VBox();
+                vbox.setAlignment(Pos.CENTER);
+                imageview = new ImageView();
+                imageview.setFitHeight(16);
+                imageview.setFitWidth(16);
+                imageview.setVisible(true);
+                imageview.setCache(true);
+                vbox.getChildren().addAll(imageview);
+                setGraphic(vbox);
+            }
 
-                    @Override
-                    protected void updateItem(FavoriteImage item,
-                            boolean empty) {
+            @Override
+            protected void updateItem(FavoriteImage item, boolean empty) {
+                // calling super here is very important - don't skip this!
+                super.updateItem(item, empty);
 
-                        // calling super here is very important - don't skip this!
-                        super.updateItem(item, empty);
+                if (empty) {
+                    setText(null);
+                    setGraphic(null);
 
-                        if (empty) {
-                            setText(null);
-                            setGraphic(null);
-
-                        } else {
-                            Image image = new Image(
-                                    getClass().getResourceAsStream(
-                                            item.getFavoriteImage()));
-
-                            imageview.setImage(image);
-                            setGraphic(vbox);
-                        }
-                    }
-                };
+                } else {
+                    Image image = new Image(getClass().getResourceAsStream(item.getFavoriteImage()));
+                    imageview.setImage(image);
+                    setGraphic(vbox);
+                }
+            }
+        };
 
         // Double click
         if (click != null) {
